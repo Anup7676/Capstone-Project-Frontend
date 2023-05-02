@@ -1,0 +1,50 @@
+body
+{
+    background-color: blue;
+}
+.div
+{
+    margin-left: 500px;
+}
+.header
+{
+ font-size: 50px;
+ color: white;
+}
+.ancle
+{
+    color: white;
+}
+.span
+{
+    border-radius: 50px red;
+}
+.i1
+{
+    border-width: 5px;
+    text-align: center;
+    padding: 2px;
+    
+}
+.i2
+{
+    border-width: 5px ;
+    text-align: center;
+    padding: 2px;
+    
+}
+.i3
+{
+    border-width: 5px;
+    text-align: center;
+    padding: 2px;
+    
+}
+
+.sub
+{
+    margin-left: 150px;
+    border-width:  5px;
+    padding: 1px;
+    border-color: gold;
+}
