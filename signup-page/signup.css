@@ -1,0 +1,26 @@
+    .bg-blue {
+      background-color: blue;
+    }
+
+    .navbar-nav .nav-link {
+      color: white;
+    }
+
+    .btn-white {
+      background-color: white;
+      color: blue;
+      /* You can add a color for the text on the buttons */
+      border: 5s;
+    }
+
+    label.logo {
+      color: white;
+      font-size: 35px;
+      line-height: 80px;
+      padding: 0 1px;
+      font-weight: bold;
+    }
+
+    .navbar-nav .nav-item.active .nav-link {
+      color: white;
+    }
