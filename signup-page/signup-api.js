@@ -1,12 +1,12 @@
-const validateForm = ({ email, password, gender, role }) => {
+const validateForm = ({ userName, password, role }) => {
 
     const roles = ['admin', 'user']
 
-    if (email.length <= 0) return { msg: 'invalid email', sts: false }
+    if (userName.length <= 0) return { msg: 'invalid username', sts: false}
     if (password.length <= 0) return { msg: 'invalid password', sts: false }
-    if ((role.length <= 0) || !roles.includes(role)) return { msg: 'invalid role', sts: false }
+    if((role.length <= 0) || !roles.includes(role)) return { msg: 'invalid role', sts: false }
 
-    return { sts: 'success', msg: 'all fields are valid' }
+    return { sts : 'success', msg :'all fields are valid' }
 }
 
 function setupForm() {
@@ -14,7 +14,7 @@ function setupForm() {
     const err = document.getElementById('errMsg')
     err.style.display = 'none'
 
-    const formSignup = document.getElementById('signup-link')
+    const formSignup = document.getElementById('formSignup')
 
     formSignup.onsubmit = ev => { // when form is submitted, this function would be called
 
@@ -32,7 +32,6 @@ function setupForm() {
             err.style.display = 'block'
             err.innerHTML = `<strong>${msg}</strong>`
         }
-
     }
 }
 
@@ -42,11 +41,10 @@ function apiSignup(user, form) {
     const headers = {
         'content-type': 'application/json'
     }
-    axios.post('http://localhost:8080/user/', user, { headers })
 
+    axios.post('http://localhost:8080/user/', user, { headers })
         .then(res => {
             form.reset()
-            // window.location.reload()
             showSuccessModal()
         }).catch(err => console.log(err))
 }
@@ -55,5 +53,4 @@ function showSuccessModal() {
     const myModalEl = document.getElementById('successModal');
     const modal = new bootstrap.Modal(myModalEl)
     modal.show()
-    // window.location.href = "../loginpage/login.html";
 }
