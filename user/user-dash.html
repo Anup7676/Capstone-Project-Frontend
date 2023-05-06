@@ -13,16 +13,44 @@
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <title>Login</title>
+    <style>
+        .bg-blue {
+      background-color:rgb(16, 204, 79);
+    }
+
+    .navbar-nav .nav-link {
+      color: white;
+    }
+
+    .btn-white {
+      background-color: white;
+      color: blue;
+      /* You can add a color for the text on the buttons */
+      border: 5s;
+    }
+
+    label.logo {
+      color: white;
+      font-size: 35px;
+      line-height: 80px;
+      padding: 0 1px;
+      font-weight: bold;
+    }
+
+    .navbar-nav .nav-item.active .nav-link {
+      color: white;
+    }
+  </style>
     
 </head>
 
-<body style="background-color:  rgb(94, 162, 225);">
+<body>
     <nav class="navbar navbar-expand-lg navbar-light bg-blue">
         <div class="container-fluid">
-          <label class="logo">Job Portal</label>
+          <label class="logo">Job seeker</label>
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active ">
-              <a class="nav-link" href="../home-page/home.html">Home</a>
+              <a class="nav-link" href="./home.html">Home</a>
             </li>
           </ul>
           <ul>
@@ -38,7 +66,7 @@
                 <ul class="navbar-nav ml-auto">
     
                   <li class="nav-item">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <a class="nav-link btn-white" href="../signup-page/signup.html">Sign up</a>
+                    <a class="nav-link btn-white" href=#>Profile</a>
                   </li>
                 </ul>
               </div>
@@ -46,48 +74,36 @@
           </ul>
         </div>
       </nav>
-    <div align="center">
+    
 
-    <form class="container" id="formLogin">
-       
-        <div class="row">
-            <div class="col">
+    
+      <form class="container" id="formSignup">
+        <div class="row bg-primary text-white mt-2 mb-3">
+            
                 <div class="alert alert-danger" role="alert" id="errMsg">
                 </div>
             </div>
-            <h1 style="color: green;">Login</h1>
+        </div>
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Job Posted</h5>
+              <p class="card-text">View or Edit the Posted Jobs.</p>
+              <a href="user-jobl-ist.html" class="btn btn-primary">View</a>
+            </div>
+          </div>
+        </div>
+        
+        
+           
+        
+    </form>
 
         </div>
-        <div><br></div>
-        <div class="col-12">
-        <div class="row d-flex justify-content-evenly">
-            <div class= "col-6 ">
-            <label for="txtUsNm">Username</label>
-            <input type="text" class="form-control" id="txtUsNm" placeholder="Username" name="userName" required>
-                
-            </div>
-        </div>
-        <div><br></div>
-        <div class="col-12">
-            <div class="row d-flex justify-content-evenly">
-                <div class= "col-6 ">
-                <label for="txtPss">Password</label>
-                <input type="password" class="form-control" id="txtPss" placeholder="password" name="password" required>
-            </div>
-            </div>
-        </div>
-        <div><br></div>
-        <div class="col-6"><div class=" col-6">
-            <div class="row d-flex justify-content-evenly">
-            <div class="col-3 d-flex justify-content-start align-items-center">
-                <input type="submit" value="Login" class="btn btn-success">
-            </div>
-        </div>
-        </div>
-    </form>
+       
 </div>
     <!-- here you need to import your scripts -->
-    <script src="./login-api.js"></script>
+    <script src="./restapi/user-dash-api.js"></script>
 </body>
 
 </html>

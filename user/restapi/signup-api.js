@@ -54,19 +54,3 @@ function showSuccessModal() {
     const modal = new bootstrap.Modal(myModalEl)
     modal.show()
 }
-
-// const emailInput = document.getElementById("email");
-// const passwordInput = document.getElementById("password");
-
-// // Assuming you have a submit button that triggers a function to validate the inputs
-// const submitButton = document.getElementById("submit-button");
-
-// submitButton.addEventListener("click", () => {
-//   if (emailInput.value === "" || passwordInput.value === "") {
-//     // If either the email or password field is empty, display an error message
-//     alert("Invalid email/password");
-//   } else {
-//     // Otherwise, perform further validation or submit the form
-//     // ...
-//   }
-// });

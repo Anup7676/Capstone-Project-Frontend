@@ -12,18 +12,47 @@
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <title>SignUp</title>
-    
+    <title>Job post</title>
+    <style>
+        .bg-blue {
+      background-color: rgb(16, 204, 79);
+    }
+
+    .navbar-nav .nav-link {
+      color: white;
+    }
+
+    .btn-white {
+      background-color: white;
+      color: blue;
+      /* You can add a color for the text on the buttons */
+      border: 5s;
+    }
+
+    label.logo {
+      color: white;
+      font-size: 35px;
+      line-height: 80px;
+      padding: 0 1px;
+      font-weight: bold;
+    }
+
+    .navbar-nav .nav-item.active .nav-link {
+      color: white;
+    }
+  </style>
+
 </head>
 
-<body style="background-color: rgb(94, 162, 225);">
+<body>
+
 
     <nav class="navbar navbar-expand-lg navbar-light bg-blue">
         <div class="container-fluid">
           <label class="logo">Job Portal</label>
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active ">
-              <a class="nav-link" href="../home-page/home.html">Home</a>
+              <a class="nav-link" href="admin-dash.html">Back</a>
             </li>
           </ul>
           <ul>
@@ -39,7 +68,7 @@
                 <ul class="navbar-nav ml-auto">
     
                   <li class="nav-item">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <a class="nav-link btn-white" href="../login-page/login.html">Login</a>
+                    <a class="nav-link btn-white" href="home.html">Logout</a>
                   </li>
                 </ul>
               </div>
@@ -47,48 +76,77 @@
           </ul>
         </div>
       </nav>
-      <div align="center">
-    <form class="container" id="formSignup">
+      
+    <form class="container" id="formJobpost">
         <div class="row">
             <div class="col">
                 <div class="alert alert-danger" role="alert" id="errMsg">
                 </div>
             </div>
-                        <h1 style="color: green;">Register</h1>
-
+            <div  align="center" ><h3 style="color: green;">Post Jobs</h3></div>
         </div>
         <div><br></div>
         <div class="col-12">
             <div class="row d-flex justify-content-evenly">
                 <div class=" col-6">
-                <label for="txtUsNm">Username</label>
-                <input type="text" class="form-control" id="txtUsNm" placeholder="Username" name="userName" required>
+                <label for="jtitle">Job title</label>
+                <input type="text" class="form-control" id="jtitle" placeholder="Job title" name="jobTitle" required>
                 
             </div>
             <div><br></div>
             <div class="col-12">
             <div class="row d-flex justify-content-evenly">
             <div class="col-6">
-                <label for="txtPss">Password</label>
-                <input type="password" class="form-control" id="txtPss" placeholder="password" name="password" required>
+                <label for="jd">Job Description</label>
+                <input type="textarea" class="form-control" id="jd" placeholder="Description" name="jobDescription" required>
                 
             </div>
-            <div><br></div>
+            <div class="col-12">
+                <div class="row d-flex justify-content-evenly">
+                    <div class=" col-6">
+                    <label for="loc">Location</label>
+                    <input type="text" class="form-control" id="loc" placeholder="Location" name="location" required>
+                    
+                </div>
+                <div><br></div>
+            </div>
+            <div class="col-12">
+                <div class="row d-flex justify-content-evenly">
+                    <div class=" col-6">
+                    <label for="indu">Industry</label>
+                    <input type="text" class="form-control" id="indu" placeholder="Industry" name="industry" required>
+                    
+                </div>
+                <div><br></div>
+            
+                <div class="col-12">
+                    <div class="row d-flex justify-content-evenly">
+                        <div class=" col-6">
+                        <label for="quli">Qualification</label>
+                        <input type="text" class="form-control" id="quli" placeholder="Qualification" name="qualification" required>
+                        
+                    </div>
+                    <div><br></div>
             <div class="col-12">
             <div class="row d-flex justify-content-evenly">
                 <div class="col-6">
-                    <label for="txtPss">Role</label>
-                <select class="form-select" aria-label="Default select example" name="role" required>
-                    <option selected>Select Role</option>
-                    <option value="admin">Admin</option>
-                    <option value="user">User</option>
-                </select>
+                    <label for="ar">Application Requirement</label>
+                    <input type="text" class="form-control" id="ar" placeholder="Application Requirement" name="applicationRequirement" required>
+                    
             </div>
             <div><br></div>
         </div>
+        <div class="row d-flex justify-content-evenly">
+            <div class="col-6">
+                <label for="pd">PostedDate</label>
+                <input type="date" class="form-control" id="pd" placeholder="Posted Date" name="postedDate" required>
+                
+        </div>
+        <div><br></div>
+    </div>
         <div class="row">
-            <div class="col">
-                <input type="submit" value="Signup" class="btn btn-success">
+            <div class="col d-flex justify-content-evenly">
+                <input type="submit" value="Jobpost" class="btn btn-success">
             </div>
         </div>
     </form>
@@ -102,7 +160,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    User Created Successfully
+                    Job Created Successfully
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -112,7 +170,7 @@
     </div>
 
     <!-- here you need to import your scripts -->
-    <script src="./signup-api.js"></script>
+    <script src="./restapi/jobPost-api.js"></script>
 </body>
 
 </html>
