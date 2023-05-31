@@ -1,12 +1,12 @@
-const validateForm = ({ userName, password, role }) => {
+const validateForm = ({ email, password, role }) => {
 
     const roles = ['admin', 'user']
 
-    if (userName.length <= 0) return { msg: 'invalid username', sts: false}
-    if (password.length <= 0) return { msg: 'invalid password', sts: false }
-    if((role.length <= 0) || !roles.includes(role)) return { msg: 'invalid role', sts: false }
+    if (email.length <= 0) return { msg: 'invalid email', sts: false }
+    if (password.length < 8) return { msg: 'Password must be 8 characters', sts: false }
+    if ((role.length <= 0) || !roles.includes(role)) return { msg: 'invalid role', sts: false }
 
-    return { sts : 'success', msg :'all fields are valid' }
+    return { sts: 'success', msg: 'all fields are valid' }
 }
 
 function setupForm() {
@@ -14,16 +14,15 @@ function setupForm() {
     const err = document.getElementById('errMsg')
     err.style.display = 'none'
 
-    const formSignup = document.getElementById('formSignup')
+    const formSignup = document.getElementById('signup-link')
 
-    formSignup.onsubmit = ev => { // when form is submitted, this function would be called
+    formSignup.onsubmit = ev => { 
 
-        ev.preventDefault() // stop the default behaviour of refreshing the page
+        ev.preventDefault() 
 
-        const formData = new FormData(ev.target) // ev.target points to form tag in the html
+        const formData = new FormData(ev.target) 
 
-        const user = Object.fromEntries(formData.entries()) // you are converting form data to js object
-        console.log(user)
+        const user = Object.fromEntries(formData.entries())
 
         const { sts, msg } = validateForm(user)
 
@@ -32,6 +31,7 @@ function setupForm() {
             err.style.display = 'block'
             err.innerHTML = `<strong>${msg}</strong>`
         }
+
     }
 }
 
@@ -41,8 +41,8 @@ function apiSignup(user, form) {
     const headers = {
         'content-type': 'application/json'
     }
-
     axios.post('http://localhost:8080/user/', user, { headers })
+
         .then(res => {
             form.reset()
             showSuccessModal()

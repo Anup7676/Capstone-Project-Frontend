@@ -8,10 +8,12 @@ const readIdQueryParam = () => {
 function apiGetJobDetails() {
     const id = readIdQueryParam()
 
-    axios.get(`http://localhost:8080/jobpost/${id}`)
+    axios.get(`http://localhost:8080/admin/jobs/${id}`)
         .then(httpReponse => httpReponse.data)
         .then(data => populateTableDetails(data.bd))
         .catch(err => console.log(err))
+
+        
 }
 
 
